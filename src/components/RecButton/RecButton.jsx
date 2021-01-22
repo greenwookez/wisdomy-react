@@ -5,11 +5,12 @@ import styles from './styles';
 const Button = ({
   children,
   onPress,
+  btnStyle
 }) => {
   return (
     <TouchableOpacity
       onPress={onPress}
-      style={styles.button}
+      style={[styles.button, btnStyle]}
     >
       <Text style={styles.buttonLabel}>{children}</Text>
     </TouchableOpacity>
