@@ -1,28 +1,24 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
 import ScreenWrapper from '../../components/ScreenWrapper';
 import Button from '../../components/Button';
+
+import Quote from '../../components/Quote'
 import styles from './styles';
 
-const HomeScreen = ({
-  navigation
-}) => {
-  const kek = () => {
-
-  }
-
+const HomeScreen = () => {
   return (
     <ScreenWrapper>
-      <View style={styles.content}>
-        <Text style={styles.quote}>Лучше говорить меньше, но выбирать такие слова, в которых много смысла, чем произносить длинные, но пустые речи, которые столь же бесполезны, сколь легко произносятся.</Text>
-        <Text style={styles.author}>Винсент Ван Гог</Text>
-      </View>
+      <Quote
+        text="Лучше говорить меньше, но выбирать такие слова, в которых много смысла, чем произносить длинные, но пустые речи, которые столь же бесполезны, сколь легко произносятся."
+        author={ { name: 'Ван Гог' } }
+      />
       <View style={styles.buttons}>
         <View style={styles.like}>
-          <Button onPress={kek} iconName="staro"/>
+          <Button onPress={() => {}} iconName="staro"/>
         </View>
         <View style={styles.favo}>
-          <Button onPress={kek} iconName="like2"/>
+          <Button onPress={() => {}} iconName="like2"/>
         </View>
       </View>
     </ScreenWrapper>
