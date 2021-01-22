@@ -13,12 +13,12 @@ class Api {
     this.url = BASE_URL + uri;
   }
 
-  fetch(uri, args) {
-    fetch(this.url + uri, args)
+  fetch(args) {
+    return fetch(this.url, args)
   }
 
   get(args) {
-    this.fetch({
+    return this.fetch({
       method: 'GET',
       ...this.options,
       body: JSON.stringify(args)
@@ -26,7 +26,7 @@ class Api {
   }
 
   post(args) {
-    this.fetch({
+    return this.fetch({
       method: 'POST',
       ...this.options,
       body: JSON.stringify(args)
@@ -34,7 +34,7 @@ class Api {
   }
 
   put(args) {
-    this.fetch({
+    return this.fetch({
       method: 'PUT',
       ...this.options,
       body: JSON.stringify(args)
@@ -42,7 +42,7 @@ class Api {
   }
 
   patch(args) {
-    this.fetch({
+    return this.fetch({
       method: 'PUT',
       ...this.options,
       body: JSON.stringify(args)
@@ -50,7 +50,7 @@ class Api {
   }
 
   delete(args) {
-    this.fetch({
+    return this.fetch({
       method: 'DELETE',
       ...this.options,
       body: JSON.stringify(args)
