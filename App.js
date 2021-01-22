@@ -1,21 +1,30 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import GlobalContextProvider from './src/components/GlobalContext';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { NavigationContainer } from '@react-navigation/native';
+import HomeScreen from './src/screens/HomeScreen';
+import FavouritesScreen from './src/screens/FavouritesScreen';
+import CustomDrawer from './src/components/CustomDrawer';
 
-export default function App() {
+const Drawer = createDrawerNavigator();
+
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Hello world!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <GlobalContextProvider>
+      <NavigationContainer>
+        <Drawer.Navigator
+          initialRouteName="Home"
+          drawerContent={props => <CustomDrawer {...props} />}
+          overlayColor='transparent'
+          drawerStyle={{backgroundColor: 'rgb(30, 33, 35)'}}
+          lazy
+        >
+          <Drawer.Screen name="Home" component={HomeScreen} />
+          <Drawer.Screen name="Favourites" component={FavouritesScreen} />
+        </Drawer.Navigator>
+      </NavigationContainer>
+    </GlobalContextProvider>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
