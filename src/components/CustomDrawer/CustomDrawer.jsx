@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, ScrollView, SafeAreaView } from 'react-native';
+import { SafeAreaView } from 'react-native';
 import {
   DrawerItem,
 } from '@react-navigation/drawer';
@@ -8,7 +8,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import styles from './styles';
 
-const CustomDrawer = ({navigation, progress, ...props}) => {
+const CustomDrawer = ({ navigation, progress }) => {
   const translateX = Animated.interpolate(progress, {
     inputRange: [0, 1],
     outputRange: [-100, 0],

@@ -2,14 +2,11 @@ import React from 'react';
 import { Text, View } from 'react-native';
 import ScreenWrapper from '../../components/ScreenWrapper';
 import Button from '../../components/Button';
-import { useNavigation } from '@react-navigation/native';
 import styles from './styles';
-
 
 const HomeScreen = ({
   navigation
 }) => {
-
   const kek = () => {
 
   }

@@ -1,9 +1,6 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import styles from './styles';
-import {
-  DrawerItem,
-} from '@react-navigation/drawer';
 import RecButton from '../../../RecButton'
 
 const Footer = ({
