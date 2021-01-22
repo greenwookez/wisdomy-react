@@ -5,6 +5,7 @@ const styles = StyleSheet.create({
     flex: 1,
     margin: 10,
     marginTop: 20,
+    paddingBottom: 5,
     justifyContent: 'flex-end',
   },
   aboutContainer: {

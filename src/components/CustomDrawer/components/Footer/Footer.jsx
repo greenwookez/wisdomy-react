@@ -6,14 +6,16 @@ import {
 } from '@react-navigation/drawer';
 import RecButton from '../../../RecButton'
 
-const Footer = () => {
+const Footer = ({
+  navigation
+}) => {
   return (
     <View style={styles.container}>
       <View style={styles.aboutContainer}>
         <Text style={styles.about}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</Text>
       </View>
-      <RecButton>Войти</RecButton>
-      <RecButton>Регистрация</RecButton>
+      <RecButton onPress={() => navigation.navigate('SignInScreen')}>Войти</RecButton>
+      <RecButton onPress={() => navigation.navigate('SignUpScreen')}>Регистрация</RecButton>
     </View>
   )
 };

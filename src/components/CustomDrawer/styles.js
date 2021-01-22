@@ -9,8 +9,8 @@ const styles = StyleSheet.create({
   },
   label: {
     color: '#fff',
-    fontWeight: '500',
-    fontSize: 14,
+    fontWeight: '600',
+    fontSize: 16,
   }
 });
 
