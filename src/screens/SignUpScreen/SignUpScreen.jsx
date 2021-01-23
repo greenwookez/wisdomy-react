@@ -12,9 +12,7 @@ import { SIGN_IN_SCREEN } from '../../routes';
 import styles from './styles';
 import { HOME_SCREEN } from '../../routes';
 
-const SignUpScreen = ({
-  navigation,
-}) => {
+const SignUpScreen = ({ navigation }) => {
   const { handleSubmit, control, errors } = useForm();
 
   const onSubmit = async (data) => {
