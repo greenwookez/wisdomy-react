@@ -7,12 +7,22 @@ import usersApi from '../../services/api/usersApi'
 import ScreenWrapper from '../../components/ScreenWrapper';
 import RecButton from '../../components/RecButton';
 import Input from '../../components/Input';
+<<<<<<< Updated upstream
+=======
+import { useForm } from 'react-hook-form';
+import { signUp } from '../../services/api/usersApi';
+import { SIGN_IN_SCREEN } from '../../routes';
+>>>>>>> Stashed changes
 import styles from './styles';
 import { HOME_SCREEN } from '../../routes';
 
+<<<<<<< Updated upstream
 const SignUpScreen = ({
   navigation,
 }) => {
+=======
+const SignUpScreen = ({ navigation }) => {
+>>>>>>> Stashed changes
   const { handleSubmit, control, errors } = useForm();
 
   const onSubmit = async (data) => {
@@ -80,7 +90,11 @@ const SignUpScreen = ({
           <RecButton onPress={handleSubmit(onSubmit)} btnStyle={styles.button}>Создать аккаунт</RecButton>
           <View style={styles.helpContainer}>
             <Text style={styles.help}>Уже есть акканут?</Text>
+<<<<<<< Updated upstream
             <TouchableOpacity style={styles.helpButton}><Text style={styles.helpButtonLabel}>Войдите</Text></TouchableOpacity>
+=======
+            <TouchableOpacity onPress={() => { navigation.navigate(SIGN_IN_SCREEN) }} style={styles.helpButton}><Text style={styles.helpButtonLabel}>Войдите</Text></TouchableOpacity>
+>>>>>>> Stashed changes
           </View>
         </View>
       </View>

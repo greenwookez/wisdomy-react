@@ -7,7 +7,11 @@ import ScreenWrapper from '../../components/ScreenWrapper';
 import RecButton from '../../components/RecButton';
 import Input from '../../components/Input';
 import usersApi from '../../services/api/usersApi'
+<<<<<<< Updated upstream
 import { HOME_SCREEN } from '../../routes';
+=======
+import { HOME_SCREEN, SIGN_UP_SCREEN } from '../../routes';
+>>>>>>> Stashed changes
 
 import styles from './styles';
 
@@ -58,7 +62,11 @@ const SignInScreen = ({ navigation }) => {
           <RecButton onPress={handleSubmit(onSubmit)} btnStyle={styles.button}>Войти в аккаунт</RecButton>
           <View style={styles.helpContainer}>
             <Text style={styles.help}>Нет аккаунта?</Text>
+<<<<<<< Updated upstream
             <TouchableOpacity style={styles.helpButton}><Text style={styles.helpButtonLabel}>Зарегистрируйтесь</Text></TouchableOpacity>
+=======
+            <TouchableOpacity onPress={() => { navigation.navigate(SIGN_UP_SCREEN) }} style={styles.helpButton}><Text style={styles.helpButtonLabel}>Зарегистрируйтесь</Text></TouchableOpacity>
+>>>>>>> Stashed changes
           </View>
         </View>
       </View>

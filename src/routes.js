@@ -27,4 +27,8 @@ const ROUTES = [
   },
 ];
 
+<<<<<<< Updated upstream
 export default ROUTES;
+=======
+export default ROUTES;
+>>>>>>> Stashed changes
