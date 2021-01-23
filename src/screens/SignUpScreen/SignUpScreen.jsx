@@ -3,25 +3,64 @@ import { Text, View, TextInput, Keyboard  } from 'react-native';
 import ScreenWrapper from '../../components/ScreenWrapper';
 import RecButton from '../../components/RecButton';
 import Input from '../../components/Input';
-import { useForm, Controller } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import styles from './styles';
 
 const SignUpScreen = ({
   navigation
 }) => {
-  const { handleSubmit, control } = useForm();
+  const { handleSubmit, control, errors } = useForm();
   const onSubmit = data => {
     Keyboard.dismiss();
     console.log(data);
-  }
+  };
+  const EMAIL_REGEX = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return (
     <ScreenWrapper>
       <View style={styles.container}>
         <View style={styles.content}>
           <Text style={styles.welcome}>Регистрация</Text>
-          <Input control={control} name="nick" placeholder="Nickname" autoCompleteType="username" textContentType="nickname"/>
-          <Input control={control} name="email" placeholder="Email" autoCompleteType="email" textContentType="emailAddress"/>
-          <Input control={control} name="password" placeholder="Password" autoCompleteType="password" textContentType="newPassword"/>
+          <Input
+            control={control}
+            name="nick"
+            placeholder="Никнейм"
+            autoCompleteType="username"
+            textContentType="nickname"
+            rules={{
+                required: { value: true, message: 'Поле обязательно для ввода'},
+                minLength: { value: 4, message: 'Никнейм слишком короткий'},
+                maxLength: { value: 20, message: 'Никнейм слишком длинный'},
+            }}
+            error={errors.nick}
+            errorText={errors?.nick?.message}
+          />
+          <Input
+            control={control}
+            name="email"
+            placeholder="Электронная почта"
+            autoCompleteType="email"
+            textContentType="emailAddress"
+            rules={{
+                required: { value: true, message: 'Поле обязательно для ввода'},
+                pattern: { value: EMAIL_REGEX, message: 'Неверная электронная почта'}
+            }}
+            error={errors.email}
+            errorText={errors?.email?.message}
+          />
+          <Input
+            control={control}
+            name="password"
+            placeholder="Password"
+            autoCompleteType="password"
+            textContentType="newPassword"
+            rules={{
+                required: { value: true, message: 'Поле обязательно для ввода'},
+                minLength: { value: 4, message: 'Пароль слишком короткий'},
+                maxLength: { value: 20, message: 'Пароль слишком длинный'},
+            }}
+            error={errors.password}
+            errorText={errors?.password?.message}
+          />
           <RecButton onPress={handleSubmit(onSubmit)} btnStyle={styles.button}>Создать аккаунт</RecButton>
         </View>
       </View>
