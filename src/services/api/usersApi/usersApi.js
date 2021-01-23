@@ -1,4 +1,4 @@
-import Api from './Api'
+import Api from '../Api';
 
 const userApi = new Api('users');
 const userTokenApi = new Api('user_token');
@@ -12,15 +12,11 @@ export default {
       }
     })
   },
-  signUp: ({ email, password, nick }) => {
+  signUp: (data) => {
     return userApi.post({
       data: {
         type: 'user',
-        attributes: {
-          email,
-          password,
-          nick,
-        }
+        attributes: data,
       }
     })
   }

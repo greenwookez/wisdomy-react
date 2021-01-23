@@ -4,6 +4,8 @@ import ScreenWrapper from '../../components/ScreenWrapper';
 import RecButton from '../../components/RecButton';
 import Input from '../../components/Input';
 import { useForm } from 'react-hook-form';
+import { signUp } from '../../services/api/usersApi';
+import store from '../../services/store';
 import styles from './styles';
 
 const SignUpScreen = ({
@@ -12,8 +14,11 @@ const SignUpScreen = ({
   const { handleSubmit, control, errors } = useForm();
   const onSubmit = data => {
     Keyboard.dismiss();
-    console.log(data);
+    const result = signUp(data);
+    console.log(result);
+    //store.dispatch({ type: 'setToken' }, ivalue: result});
   };
+
   const EMAIL_REGEX = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return (
     <ScreenWrapper>
