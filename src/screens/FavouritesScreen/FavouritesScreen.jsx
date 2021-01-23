@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, ScrollView,  View } from 'react-native';
+import { ScrollView } from 'react-native';
 import ScreenWrapper from '../../components/ScreenWrapper';
 import FavoCard from './components/FavoCard';
 import styles from './styles';
