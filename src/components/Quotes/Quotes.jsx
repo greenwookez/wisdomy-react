@@ -27,8 +27,6 @@ const Quotes = () => {
     return null;
   }
 
-  console.log(quotes)
-
   return (
     <SwipeableList
       list={quotes}

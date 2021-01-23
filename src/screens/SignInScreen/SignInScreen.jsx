@@ -1,19 +1,28 @@
 import React from 'react';
-import { Text, View, TextInput, Keyboard  } from 'react-native';
+import { useForm } from 'react-hook-form';
+import { Text, View, Keyboard  } from 'react-native';
+
+import store, { actionCreators } from '../../services/store'
 import ScreenWrapper from '../../components/ScreenWrapper';
 import RecButton from '../../components/RecButton';
 import Input from '../../components/Input';
-import { useForm } from 'react-hook-form';
+import usersApi from '../../services/api/usersApi'
+
 import styles from './styles';
 
-const SignInScreen = ({
-  navigation
-}) => {
+const SignInScreen = () => {
   const { handleSubmit, control, errors } = useForm();
-  const onSubmit = data => {
+
+  const onSubmit = async (data) => {
     Keyboard.dismiss();
-    console.log(data);
-  };
+
+    const { jwt: userToken } = await usersApi.signIn(data)
+
+    if (userToken) {
+      store.dispatch(actionCreators.setUserToken(userToken))
+    }
+  }
+
   return (
     <ScreenWrapper>
       <View style={styles.container}>
@@ -21,15 +30,15 @@ const SignInScreen = ({
           <Text style={styles.welcome}>Авторизация</Text>
           <Input
             control={control}
-            name="nick"
-            placeholder="Никнейм"
-            autoCompleteType="username"
-            textContentType="nickname"
+            name="email"
+            placeholder="Email"
+            autoCompleteType="email"
+            textContentType="emailAddress"
             rules={{
                 required: { value: true, message: 'Поле обязательно для ввода'},
             }}
-            error={errors.nick}
-            errorText={errors?.nick?.message}
+            error={errors.email}
+            errorText={errors?.email?.message}
           />
           <Input
             control={control}

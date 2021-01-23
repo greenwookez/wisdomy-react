@@ -1,18 +1,17 @@
 import { createStore } from 'redux';
 
-const actions = (
-  userToken = null,
-  action,
-  ivalue
-) => {
+import {
+  SET_USER_TOKEN
+} from './actions'
+
+const initialState = {}
+
+const reducer = (state, action) => {
   switch(action.type) {
-    case 'setToken':
-      return { userToken: ivalue }
-    case 'getToken':
-      return { userToken }
+    case SET_USER_TOKEN: return { userToken: action.payload }
   }
 }
 
-let store = createStore(actions);
+const store = createStore(reducer, initialState);
 
 export default store;
