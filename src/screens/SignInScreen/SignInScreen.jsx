@@ -1,6 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Text, View, Keyboard  } from 'react-native';
+import { Text, View, Keyboard, TouchableOpacity  } from 'react-native';
 
 import store, { actionCreators } from '../../services/store'
 import ScreenWrapper from '../../components/ScreenWrapper';

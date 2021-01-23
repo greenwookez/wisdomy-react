@@ -16,7 +16,7 @@ class Api {
 
   post(path, body) {
     const url = BASE_URL + path;
-    
+
     const options = {
       method: 'POST',
       ...getDefaultOptions(),
@@ -25,10 +25,10 @@ class Api {
 
     return fetch(url, options).then(this.handleResponse)
   }
-  
+
   put(path, body) {
     const url = BASE_URL + path;
-    
+
     const options = {
       method: 'PUT',
       ...getDefaultOptions(),
@@ -40,7 +40,7 @@ class Api {
 
   patch(path, body) {
     const url = BASE_URL + path;
-    
+
     const options = {
       method: 'PATCH',
       ...getDefaultOptions(),
@@ -53,7 +53,7 @@ class Api {
   handleResponse(response) {
     return response.text().then(text => {
         const data = text && JSON.parse(text);
-        
+
         if (!response.ok) {
             const error = (data && data.message) || response.statusText;
             return Promise.reject(error);
