@@ -14,7 +14,6 @@ const SwipeableList = ({
   const Component = renderItem(list[pointer]);
 
   const onSwipe = (nextPointer) => {
-
     if (nextPointer < 0) {
       nextPointer = list.length - 1;
     } else if (nextPointer > list.length - 1) {
@@ -22,15 +21,17 @@ const SwipeableList = ({
     }
 
     castAnimation(0);
-    setTimeout(() => {  setPointer(nextPointer) }, 200);
-    setTimeout(() => castAnimation(1), 200);
 
+    setTimeout(() => { 
+      setPointer(nextPointer)
+      castAnimation(1)
+    }, 100);
   };
 
   return (
     <GestureRecognizer
-      onSwipeRight={() => {onSwipe(pointer-1)}}
-      onSwipeLeft={() => {onSwipe(pointer+1)}}
+      onSwipeRight={() => { onSwipe(pointer - 1) }}
+      onSwipeLeft={() => { onSwipe(pointer + 1) }}
       config={SWIPEABLE_CONFIG}
       style={styles.swipeable}
     >

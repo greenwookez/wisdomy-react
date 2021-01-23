@@ -36,7 +36,7 @@ const Footer = ({
 
       {isAuthorized && <RecButton onPress={onSignOut}>Выйти</RecButton>}
       {!isAuthorized && <RecButton onPress={() => navigation.navigate(SIGN_IN_SCREEN)}>Войти</RecButton>}
-      {!isAuthorized && <RecButton onPress={() => navigation.navigate(SIGN_UP_SCREEN)}>Регистрация</RecButton>}
+      {/* {!isAuthorized && <RecButton onPress={() => navigation.navigate(SIGN_UP_SCREEN)}>Регистрация</RecButton>} */}
     </View>
   )
 };

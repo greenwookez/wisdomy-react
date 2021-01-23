@@ -1,4 +1,4 @@
 export const SWIPEABLE_CONFIG = {
-  velocityThreshold: 0.1,
-  directionalOffsetThreshold: 50,
+  velocityThreshold: 0.05,
+  directionalOffsetThreshold: 25,
 };
