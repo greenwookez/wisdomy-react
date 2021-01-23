@@ -21,6 +21,11 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontWeight: '500',
     fontSize: 14,
+  },
+  github: {
+    marginTop: 8,
+    fontSize: 16,
+    color: 'rgb(196, 106, 213)'
   }
 });
 

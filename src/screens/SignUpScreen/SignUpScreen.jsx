@@ -2,6 +2,7 @@ import React from 'react';
 import { Text, View, Keyboard, TouchableOpacity  } from 'react-native';
 import { useForm } from 'react-hook-form';
 
+import CoomingSoon from '../../components/CoomingSoon'
 import store, { actionCreators } from '../../services/store'
 import usersApi from '../../services/api/usersApi'
 import ScreenWrapper from '../../components/ScreenWrapper';
@@ -13,6 +14,12 @@ import styles from './styles';
 import { HOME_SCREEN } from '../../routes';
 
 const SignUpScreen = ({ navigation }) => {
+  return (
+    <ScreenWrapper>
+      <CoomingSoon />
+    </ScreenWrapper>
+  )
+
   const { handleSubmit, control, errors } = useForm();
 
   const onSubmit = async (data) => {
