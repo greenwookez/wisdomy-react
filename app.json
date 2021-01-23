@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "wisdomy-react",
+    "name": "Wisdomy",
     "slug": "wisdomy-react",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -17,17 +17,17 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true,
-      "bundleIdentifier": "wisdomy-ios"
+      "supportsTablet": false,
+      "bundleIdentifier": "com.wisdomy.wisdomy",
+      "buildNumber": "1.0.0"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./src/assets/icons/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
-    },
-    "web": {
-      "favicon": "./src/assets/icons/favicon.png"
+      },
+      "package": "com.wisdomy.wisdomy",
+      "versionCode": 1,
     }
   }
 }
