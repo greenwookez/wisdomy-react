@@ -5,7 +5,6 @@ const userTokenApi = new Api('user_token');
 
 export default {
   signIn: ({ email, password }) => {
-    console.log('REQUEST REQUEST REQUEST REQUEST')
     return userTokenApi.post({
       auth: {
         email,
