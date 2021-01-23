@@ -7,10 +7,13 @@ import ScreenWrapper from '../../components/ScreenWrapper';
 import RecButton from '../../components/RecButton';
 import Input from '../../components/Input';
 import usersApi from '../../services/api/usersApi'
+import { HOME_SCREEN } from '../../routes';
 
 import styles from './styles';
 
-const SignInScreen = () => {
+const SignInScreen = ({
+  navigation
+}) => {
   const { handleSubmit, control, errors } = useForm();
 
   const onSubmit = async (data) => {
@@ -20,6 +23,7 @@ const SignInScreen = () => {
 
     if (userToken) {
       store.dispatch(actionCreators.setUserToken(userToken))
+      navigation.navigate(HOME_SCREEN)
     }
   }
 

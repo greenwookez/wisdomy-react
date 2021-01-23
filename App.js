@@ -1,14 +1,15 @@
 import React from 'react';
-import GlobalContextProvider from './src/components/GlobalContext';
-import { createDrawerNavigator } from '@react-navigation/drawer';
+import { createDrawerNavigator, DrawerContentScrollView } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
-import HomeScreen from './src/screens/HomeScreen';
-import FavouritesScreen from './src/screens/FavouritesScreen';
-import SignInScreen from './src/screens/SignInScreen';
-import SignUpScreen from './src/screens/SignUpScreen';
+
+import GlobalContextProvider from './src/components/GlobalContext';
 import CustomDrawer from './src/components/CustomDrawer';
 
+import ROUTES from './src/routes';
+
 const Drawer = createDrawerNavigator();
+
+console.log(ROUTES);
 
 const App = () => {
   return (
@@ -18,13 +19,14 @@ const App = () => {
           initialRouteName="Home"
           drawerContent={(props) => <CustomDrawer {...props} />}
           overlayColor='transparent'
-          drawerStyle={{backgroundColor: 'rgb(30, 33, 35)'}}
+          drawerStyle={ { backgroundColor: 'rgb(30, 33, 35)' } }
           lazy
         >
-          <Drawer.Screen name="HomeScreen" component={HomeScreen} />
-          <Drawer.Screen name="FavouritesScreen" component={FavouritesScreen} />
-          <Drawer.Screen name="SignInScreen" component={SignInScreen} />
-          <Drawer.Screen name="SignUpScreen" component={SignUpScreen} />
+          {
+            ROUTES.map((route) => {
+              return <Drawer.Screen name={route.name} component={route.component} key={route.name} />
+            })
+          }
         </Drawer.Navigator>
       </NavigationContainer>
     </GlobalContextProvider>
