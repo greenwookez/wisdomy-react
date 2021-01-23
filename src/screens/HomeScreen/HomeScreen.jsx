@@ -12,10 +12,10 @@ const HomeScreen = () => {
       <Quotes />
       <View style={styles.buttons}>
         <View style={styles.like}>
-          <Button onPress={() => {}} iconName="staro"/>
+          {/* <Button onPress={() => {}} iconName="staro"/> */}
         </View>
         <View style={styles.favo}>
-          <Button onPress={() => {}} iconName="like2"/>
+          {/* <Button onPress={() => {}} iconName="like2"/> */}
         </View>
       </View>
     </ScreenWrapper>

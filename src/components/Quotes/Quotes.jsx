@@ -35,7 +35,6 @@ const Quotes = () => {
     );
   }
 
-  console.log(quotes)
 
   castAnimation(1);
   return (

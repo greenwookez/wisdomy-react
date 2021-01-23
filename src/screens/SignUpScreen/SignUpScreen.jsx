@@ -5,17 +5,14 @@ import RecButton from '../../components/RecButton';
 import Input from '../../components/Input';
 import { useForm } from 'react-hook-form';
 import { signUp } from '../../services/api/usersApi';
-import store from '../../services/store';
 import styles from './styles';
 
-const SignUpScreen = ({
-  navigation
-}) => {
+const SignUpScreen = () => {
   const { handleSubmit, control, errors } = useForm();
   const onSubmit = data => {
     Keyboard.dismiss();
+
     const result = signUp(data);
-    console.log(result);
     //store.dispatch({ type: 'setToken' }, ivalue: result});
   };
 
