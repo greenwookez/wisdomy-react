@@ -1,16 +1,18 @@
 import React from 'react';
 import { ScrollView } from 'react-native';
+
+import CoomingSoon from '../../components/CoomingSoon'
 import ScreenWrapper from '../../components/ScreenWrapper';
 import FavoCard from './components/FavoCard';
 import styles from './styles';
 
 const FavouritesScreen = () => {
-  const author = {
-    name: "Винсент Ван Гог"
-  }
+  const author = { name: "Винсент Ван Гог" }
+  
   return (
     <ScreenWrapper>
-      <ScrollView
+      <CoomingSoon />
+      {/* <ScrollView
         style={styles.container}
         showsVerticalScrollIndicator={false}
         >
@@ -31,7 +33,7 @@ const FavouritesScreen = () => {
           text="Лучше говорить меньше, но выбирать такие слова, в которых много смысла, чем произносить длинные, но пустые речи, которые столь же бесполезны, сколь легко произносятся."
           author={author}
         />
-      </ScrollView>
+      </ScrollView> */}
     </ScreenWrapper>
   )
 };
