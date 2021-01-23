@@ -1,11 +1,8 @@
-import Api from '../Api';
-
-const userApi = new Api('users');
-const userTokenApi = new Api('user_token');
+import api from '../api';
 
 export default {
   signIn: ({ email, password }) => {
-    return userTokenApi.post({
+    return api.post('user_token', {
       auth: {
         email,
         password,
@@ -13,7 +10,7 @@ export default {
     })
   },
   signUp: (data) => {
-    return userApi.post({
+    return api.post('users', {
       data: {
         type: 'user',
         attributes: data,

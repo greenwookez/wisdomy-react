@@ -1,22 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import GestureRecognizer from 'react-native-swipe-gestures';
 
 import styles from './styles';
 import { SWIPEABLE_CONFIG } from './constants';
 
 const SwipeableList = ({
-  children,
-  // list,
-  // renderItem,
+  list,
+  renderItem,
 }) => {
+  const [pointer, setPointer] = useState(0)
+  const Component = renderItem(list[pointer]);
+
+  const onSwipeLeft = () => {
+    setPointer((prevPointer) => prevPointer + 1)
+  };
+
+  const onSwipeRight = () => {
+    setPointer((prevPointer) => prevPointer + 1)
+  };
+
   return (
     <GestureRecognizer
-      onSwipeLeft={() => {}}
-      onSwipeRight={() => {}}
+      onSwipeLeft={onSwipeLeft}
+      onSwipeRight={onSwipeRight}
       config={SWIPEABLE_CONFIG}
       style={styles.swipeable}
     >
-      {children}
+      {Component}
     </GestureRecognizer>
   )
 };

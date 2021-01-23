@@ -1,3 +1,4 @@
+import generateUrl from './utils/generateUrl'
 
 const BASE_URL = 'https://wisdomy.herokuapp.com/api/';
 const OPTIONS = {
@@ -10,52 +11,57 @@ const OPTIONS = {
 class Api {
   constructor(uri, options) {
     this.options = { ...OPTIONS, ...options }
-    this.url = BASE_URL + uri;
   }
 
-  fetch(args) {
-    return fetch(this.url, args)
+  fetch(...args) {
+    return fetch(args).then(response => response.json())
   }
 
-  get(args) {
-    return this.fetch({
-      method: 'GET',
-      ...this.options,
-      body: JSON.stringify(args)
-    })
+  get(path, params) {
+    const url = generateUrl(BASE_URL + path, params);
+
+    return this.fetch(url, this.options)
   }
 
-  post(args) {
-    return this.fetch({
+  post(path, body) {
+    const url = BASE_URL + path;
+    
+    return this.fetch(url, {
       method: 'POST',
       ...this.options,
-      body: JSON.stringify(args)
+      body: JSON.stringify(body)
     })
   }
 
-  put(args) {
-    return this.fetch({
+  put(path, body) {
+    const url = BASE_URL + path;
+    
+    return this.fetch(url, {
       method: 'PUT',
       ...this.options,
-      body: JSON.stringify(args)
+      body: JSON.stringify(body)
     })
   }
 
-  patch(args) {
-    return this.fetch({
-      method: 'PUT',
+  patch(path, body) {
+    const url = BASE_URL + path;
+    
+    return this.fetch(url, {
+      method: 'PATCH',
       ...this.options,
-      body: JSON.stringify(args)
+      body: JSON.stringify(body)
     })
   }
 
-  delete(args) {
-    return this.fetch({
+  delete(path, body) {
+    const url = BASE_URL + path;
+    
+    return this.fetch(url, {
       method: 'DELETE',
       ...this.options,
-      body: JSON.stringify(args)
+      body: JSON.stringify(body)
     })
   }
 }
 
-export default Api;
+export default new Api();
