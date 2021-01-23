@@ -1,22 +1,35 @@
 import React from 'react';
 import { Text, View, Keyboard, TouchableOpacity  } from 'react-native';
+import { useForm } from 'react-hook-form';
+
+import store, { actionCreators } from '../../services/store'
+import usersApi from '../../services/api/usersApi'
 import ScreenWrapper from '../../components/ScreenWrapper';
 import RecButton from '../../components/RecButton';
 import Input from '../../components/Input';
-import { useForm } from 'react-hook-form';
-import { signUp } from '../../services/api/usersApi';
 import styles from './styles';
+import { HOME_SCREEN } from '../../routes';
 
-const SignUpScreen = () => {
+const SignUpScreen = ({
+  navigation,
+}) => {
   const { handleSubmit, control, errors } = useForm();
-  const onSubmit = data => {
+
+  const onSubmit = async (data) => {
     Keyboard.dismiss();
 
-    const result = signUp(data);
-    //store.dispatch({ type: 'setToken' }, ivalue: result});
+    await usersApi.signUp(data)
+
+    const { jwt: userToken } = await usersApi.signIn(data)
+
+    if (userToken) {
+      store.dispatch(actionCreators.setUserToken(userToken))
+      navigation.navigate(HOME_SCREEN)
+    }
   };
 
   const EMAIL_REGEX = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
   return (
     <ScreenWrapper>
       <View style={styles.container}>
