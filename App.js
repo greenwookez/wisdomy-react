@@ -9,8 +9,6 @@ import ROUTES from './src/routes';
 
 const Drawer = createDrawerNavigator();
 
-console.log(ROUTES);
-
 const App = () => {
   return (
     <GlobalContextProvider>

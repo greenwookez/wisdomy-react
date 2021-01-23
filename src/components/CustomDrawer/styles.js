@@ -11,6 +11,10 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontWeight: '600',
     fontSize: 16,
+  },
+  discordLink: {
+    marginLeft: 18,
+    marginTop: 16,
   }
 });
 
