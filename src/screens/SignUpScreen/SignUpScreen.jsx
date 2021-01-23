@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, TextInput, Keyboard  } from 'react-native';
+import { Text, View, Keyboard  } from 'react-native';
 import ScreenWrapper from '../../components/ScreenWrapper';
 import RecButton from '../../components/RecButton';
 import Input from '../../components/Input';
