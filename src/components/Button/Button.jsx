@@ -5,16 +5,21 @@ import styles from './styles';
 
 const Button = ({
   onPress,
-  iconName
+  iconName,
+  size
 }) => {
   return (
     <TouchableOpacity
       onPress={onPress}
       style={styles.button}
     >
-      <Icon name={iconName} size="36" color="#fff"/>
+      <Icon name={iconName} size={size} color="#fff"/>
     </TouchableOpacity>
   );
 };
 
 export default Button;
+
+Button.defaultProps = {
+  size: "36"
+};
