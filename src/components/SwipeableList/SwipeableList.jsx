@@ -1,20 +1,10 @@
 import React, { useState } from 'react';
 import GestureRecognizer from 'react-native-swipe-gestures';
-import { Animated, Easing } from 'react-native';
+import { Animated } from 'react-native';
 
 import styles from './styles';
 import { SWIPEABLE_CONFIG } from './constants';
-
-const opacity = new Animated.Value(1);
-
-const castAnimation = (toValue) => {
-  Animated.timing(opacity, {
-    toValue: toValue,
-    duration: 200,
-    useNativeDriver: true,
-    easing: Easing.in(Easing.elastic(0.7))
-  }).start();
-};
+import { opacity, castAnimation } from '../utils/castAnimation.js';
 
 const SwipeableList = ({
   list,
@@ -24,9 +14,17 @@ const SwipeableList = ({
   const Component = renderItem(list[pointer]);
 
   const onSwipe = (nextPointer) => {
+
+    if (nextPointer < 0) {
+      nextPointer = list.length - 1;
+    } else if (nextPointer > list.length - 1) {
+      nextPointer = 0;
+    }
+
     castAnimation(0);
     setTimeout(() => {  setPointer(nextPointer) }, 200);
     setTimeout(() => castAnimation(1), 200);
+
   };
 
   return (

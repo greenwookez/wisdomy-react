@@ -5,6 +5,7 @@ const styles = StyleSheet.create({
     margin: 10,
     marginTop: 30,
     marginBottom: 20,
+    marginLeft: 15,
     borderBottomWidth: 1,
     borderBottomColor: "#444",
   },

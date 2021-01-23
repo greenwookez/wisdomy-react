@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, Keyboard  } from 'react-native';
+import { Text, View, Keyboard, TouchableOpacity  } from 'react-native';
 import ScreenWrapper from '../../components/ScreenWrapper';
 import RecButton from '../../components/RecButton';
 import Input from '../../components/Input';
@@ -55,7 +55,7 @@ const SignUpScreen = ({
           <Input
             control={control}
             name="password"
-            placeholder="Password"
+            placeholder="Пароль"
             autoCompleteType="password"
             textContentType="newPassword"
             rules={{
@@ -65,8 +65,13 @@ const SignUpScreen = ({
             }}
             error={errors.password}
             errorText={errors?.password?.message}
+            secureTextEntry={true}
           />
           <RecButton onPress={handleSubmit(onSubmit)} btnStyle={styles.button}>Создать аккаунт</RecButton>
+          <View style={styles.helpContainer}>
+            <Text style={styles.help}>Уже есть акканут?</Text>
+            <TouchableOpacity style={styles.helpButton}><Text style={styles.helpButtonLabel}>Войдите</Text></TouchableOpacity>
+          </View>
         </View>
       </View>
     </ScreenWrapper>

@@ -1,14 +1,12 @@
 import React from 'react';
-import { Text, View, TextInput, Keyboard  } from 'react-native';
+import { Text, View, Keyboard, TouchableOpacity  } from 'react-native';
 import ScreenWrapper from '../../components/ScreenWrapper';
 import RecButton from '../../components/RecButton';
 import Input from '../../components/Input';
 import { useForm } from 'react-hook-form';
 import styles from './styles';
 
-const SignInScreen = ({
-  navigation
-}) => {
+const SignInScreen = () => {
   const { handleSubmit, control, errors } = useForm();
   const onSubmit = data => {
     Keyboard.dismiss();
@@ -34,7 +32,7 @@ const SignInScreen = ({
           <Input
             control={control}
             name="password"
-            placeholder="Password"
+            placeholder="Пароль"
             autoCompleteType="password"
             textContentType="newPassword"
             rules={{
@@ -42,8 +40,13 @@ const SignInScreen = ({
             }}
             error={errors.password}
             errorText={errors?.password?.message}
+            secureTextEntry={true}
           />
           <RecButton onPress={handleSubmit(onSubmit)} btnStyle={styles.button}>Войти в аккаунт</RecButton>
+          <View style={styles.helpContainer}>
+            <Text style={styles.help}>Нет аккаунта?</Text>
+            <TouchableOpacity style={styles.helpButton}><Text style={styles.helpButtonLabel}>Зарегистрируйтесь</Text></TouchableOpacity>
+          </View>
         </View>
       </View>
     </ScreenWrapper>

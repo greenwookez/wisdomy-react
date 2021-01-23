@@ -14,7 +14,7 @@ const FavoCard = ({
       <View style={styles.footer}>
         <Text style={styles.author}>{author.name}</Text>
         <View style={styles.buttonContainer}>
-          <Button onPress={() => {}} iconName="delete" size="25"/>
+          <Button onPress={() => {}} iconName="delete" size={25}/>
         </View>
       </View>
     </View>

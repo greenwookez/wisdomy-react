@@ -1,5 +1,4 @@
-import { StyleSheet, Dimensions } from 'react-native';
-const { height } = Dimensions.get('window');
+import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   swipeable: {

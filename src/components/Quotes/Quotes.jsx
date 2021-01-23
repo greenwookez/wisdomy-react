@@ -4,6 +4,7 @@ import Quote from './Quote';
 import prepareResponse from '../../utils/prepareResponse'
 import quotesApi from '../../services/api/quotesApi'
 import SwipeableList from '../SwipeableList';
+import { castAnimation } from '../../utils/castAnimation'
 
 const Quotes = () => {
   const [quotes, setQuotes] = useState(null)
@@ -24,11 +25,19 @@ const Quotes = () => {
   }, [fetch])
 
   if (!quotes) {
-    return null;
+    castAnimation(1);
+    const author = {
+      name: "Разработчики"
+    }
+    setTimeout(() => castAnimation(0), 200);
+    return (
+      <Quote text="Чтобы Арни уважал, клади гантель туда, где брал! (Цитаты подгружаются)" author={author}/>
+    );
   }
 
   console.log(quotes)
 
+  castAnimation(1);
   return (
     <SwipeableList
       list={quotes}

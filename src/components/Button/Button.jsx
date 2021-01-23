@@ -21,5 +21,5 @@ const Button = ({
 export default Button;
 
 Button.defaultProps = {
-  size: "36"
+  size: 36
 };

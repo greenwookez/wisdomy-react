@@ -34,6 +34,22 @@ const styles = StyleSheet.create({
     marginTop: 30,
     width: width * 0.8,
     backgroundColor: 'rgb(33,34,36)',
+  },
+  helpContainer: {
+    flexDirection: 'row',
+    flex: 1,
+    alignItems: 'flex-end'
+  },
+  help: {
+    color: '#888',
+    marginTop: 15
+  },
+  helpButton: {
+    justifyContent: 'flex-end',
+    marginLeft: 5,
+  },
+  helpButtonLabel: {
+    color: 'rgb(196, 106, 213)',
   }
 });
 
